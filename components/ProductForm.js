@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { formatter } from '../utils/helpers'
 import ProductOptions from './ProductOptions'
+import { CartContext } from "../context/shopContext"
 
 function ProductForm({ product }) {
 
-    console.log(product)
+    const { addToCart } = useContext(CartContext)
 
     const allVariantOptions = product.variants.edges?.map(variant => {
         const allOptions = {}
@@ -53,7 +54,14 @@ function ProductForm({ product }) {
                 />
             ))
         }
-        <button className="bg-black rounded-lg text-white px-2 py-3 hover:bg-gray-800">Add To Cart</button>
+        <button
+            onClick={() => {
+                addToCart(selectedVariant)
+            }}
+            className="bg-black rounded-lg text-white px-2 py-3 hover:bg-gray-800"
+        >
+            Add To Cart
+        </button>
     </div>
   )
 }
