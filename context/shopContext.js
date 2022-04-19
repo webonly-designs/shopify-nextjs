@@ -19,7 +19,6 @@ export default function ShopProvider({ children }) {
 
       setCheckoutId(checkout.id)
       setCheckoutUrl(checkout.webUrl)
-      localStorage.clear()
       localStorage.setItem("checkout_id", JSON.stringify([newItem, checkout]))
     } else {
       let newCart = []
@@ -39,7 +38,6 @@ export default function ShopProvider({ children }) {
 
       setCart(newCart)
       const newCheckout = await updateCheckout(checkoutId, newCart)
-      localStorage.clear()
       localStorage.setItem("checkout_id", JSON.stringify([newCart, newCheckout]))
     }
   }
