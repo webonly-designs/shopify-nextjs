@@ -1,6 +1,9 @@
 import '../styles/globals.css'
 import Layout from '../components/Layout'
 import ShopProvider from '../context/shopContext'
+import "swiper/swiper.scss"
+import 'swiper/components/navigation/navigation.scss'
+import 'swiper/components/pagination/pagination.scss'
 import { useRouter } from 'next/router'
 
 function MyApp({ Component, pageProps }) {
